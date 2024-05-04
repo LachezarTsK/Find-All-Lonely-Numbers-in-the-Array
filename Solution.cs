@@ -13,15 +13,15 @@ public class Solution
             ++frequency[value];
         }
 
-        return extractAllLonelyNumbers(frequency, maxValue);
+        return ExtractAllLonelyNumbers(frequency, maxValue);
     }
 
-    private IList<int> extractAllLonelyNumbers(int[] frequency, int maxValue)
+    private IList<int> ExtractAllLonelyNumbers(int[] frequency, int maxValue)
     {
         IList<int> allLonelyNumbersInInput = new List<int>();
         for (int value = 0; value <= maxValue; ++value)
         {
-            if (frequency[value] == 1 && hasNoAdjacentElements(frequency, value))
+            if (frequency[value] == 1 && HasNoAdjacentElements(frequency, value))
             {
                 allLonelyNumbersInInput.Add(value);
             }
@@ -29,7 +29,7 @@ public class Solution
         return allLonelyNumbersInInput;
     }
 
-    private bool hasNoAdjacentElements(int[] frequency, int value)
+    private bool HasNoAdjacentElements(int[] frequency, int value)
     {
         return (value - 1 < 0 || frequency[value - 1] == 0)
                 && (value + 1 == frequency.Length || frequency[value + 1] == 0);
